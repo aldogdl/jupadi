@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+      <!-- Bootstrap core CSS -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Material Design Bootstrap -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Oswald:300,400&display=swap" rel="stylesheet">
+
+      <title>{% block title %}JUPADI::Etiquetas{% endblock %}</title>
+      {{ encore_entry_link_tags('app') }}
+
+      {% block stylesheets %}{% endblock %}
+    </head>
+    <body style="min-width: 320px;">
+
+      <div class="container-fluid mt-3 body-main m-0 p-0">
+        <aside class="d-block bg-franja"></aside>
+        <main class="container">
+          <section class="row">
+
+            <article class="d-none d-lg-block col-lg-3 pt-2">
+              <div class="logo-jupadi rounded bg-white p-1 animated slideInDown sticky-top" style="opacity: 0.9; filter: alpha(opacity=90);">
+                <img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="logo-jupadi-etiquetas">
+              </div>
+            </article>
+
+            <article class="col-12 col-lg-9 bg-white z-depth-1 m-0 p-0">
+              <aside class="d-block bg-franjaContainer"></aside>
+              <div class="container d-lg-none">
+                <section class="row">
+                  <article class="col-12 col-md-4 text-center">
+                    <div class="logo-jupadi rounded bg-white p-1 animated fadeInLeft" style="opacity: 0.9; filter: alpha(opacity=90);">
+                      <img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="logo-jupadi-etiquetas">
+                    </div>
+                  </article>
+                  <article class="col-12 col-md-8 d-flex justify-content-center justify-content-md-end align-items-center">
+                    <div class="p-4 green-text">
+                      <i class="fas fa-phone-volume"></i>&nbsp;Contácto :: <b>(01) 33 1619-5698</b>
+                    </div>
+                  </article>
+                </section>
+              </div>
+
+              <div class="text-right p-4 green-text d-none d-lg-block">
+                <i class="fas fa-phone-volume"></i>&nbsp;Contácto :: <b>(01) 33 1619-5698</b>
+              </div>
+
+              <nav class="navbar navbar-expand-md sticky-top peach-gradient">
+                <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#menuMain" aria-controls="menuMain" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuMain">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link text-white" href="#"><i class="fas fa-city"></i>&nbsp;Nosotros <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#"><i class="fas fa-toilet-paper"></i>&nbsp;Productos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="#"><i class="fas fa-comment"></i>&nbsp;Contáctanos</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+
+              {% block body %}{% endblock %}
+              <div class="foot p-3">
+                <div class="container">
+                  <section class="row">
+                    <article class="col">
+                      <h6 class="text-light font-weight-bold">Enlases</h6>
+                      <ul>
+                        <li> <a class="text-primary" href="#">Nosotros</a> </li>
+                        <li> <a class="text-primary" href="#">Productos</a> </li>
+                        <li> <a class="text-primary" href="#">Contáctanos</a> </li>
+                      </ul>
+                    </article>
+                    <article class="col">
+                      <h6 class="text-light font-weight-bold">Descripción</h6>
+                      <p class="text-warning">
+                        En Jupadi Etiquetas solucionamos tus necesidades en todo tipo de etiquetas,
+                        ubicados en Guadalajara, Jalisco, México, tu mejor opción y honestidad.
+                      </p>
+                    </article>
+                  </section>
+                  <small class="d-block text-center text-light">Página Elaborada por Buscomex&copy; | Derechos Reservados a JUPADI-Etiquetas</small>
+                </div>
+              </div>
+            </article>
+          </section>
+        </main>
+      </div>
+
+
+      <!-- JQuery -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <!-- Bootstrap tooltips -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <!-- MDB core JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
+      {% block javascripts %}{% endblock %}
+    </body>
+</html>

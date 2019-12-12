@@ -1,0 +1,25 @@
+body {
+    background-color: #1E9E60;
+}
+.body-main{
+  min-height: 1000px;
+  position: relative;
+  background: url('../../public_html/images/bg_body.png');
+}
+.bg-franja{
+  height: 186px;
+  width: 100%;
+  background: url('../../public_html/images/bg_main.jpg');
+  background-repeat: repeat-x;
+  position: absolute;
+  top: 200px;
+}
+.bg-franjaContainer{
+  height: 10px;
+  width: 100%;
+  background-color: #1A8953;
+}
+.foot{
+  width: 100%;
+  background-color: #333;
+}

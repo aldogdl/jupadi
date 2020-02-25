@@ -4,13 +4,14 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <!-- Font Awesome -->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-      <!-- Bootstrap core CSS -->
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-      <!-- Material Design Bootstrap -->
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Oswald:300,400&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
 
       <title>{% block title %}JUPADI::Etiquetas{% endblock %}</title>
       {{ encore_entry_link_tags('app') }}
@@ -28,6 +29,15 @@
               <div class="logo-jupadi rounded bg-white p-1 animated slideInDown sticky-top" style="opacity: 0.9; filter: alpha(opacity=90);">
                 <img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="logo-jupadi-etiquetas">
               </div>
+              <div class="sticky-top" style="padding-top: 300px;">
+                <h5 class="d-block text-center"> <b class="text-primary">TEMAS GENERALES</b> </h5>
+                <hr>
+                <ol>
+                  <li class="my-2"> <a class="text-success font-weight-bold" href="{{ path('jupadi-temaFlexo') }}">Qué es Flexo?</a> </li>
+                  <li class="my-2"> <a class="text-success font-weight-bold" href="{{ path('jupadi-temaRealzado') }}">Qué es el Realzado ?</a> </li>
+                  <li class="my-2"> <a class="text-success font-weight-bold" href="{{ path('jupadi-temaAcabados') }}">Nuestros Acabados</a> </li>
+                </ol>
+              </div>
             </article>
 
             <article class="col-12 col-lg-9 bg-white z-depth-1 m-0 p-0">
@@ -41,14 +51,14 @@
                   </article>
                   <article class="col-12 col-md-8 d-flex justify-content-center justify-content-md-end align-items-center">
                     <div class="p-4 green-text">
-                      <i class="fas fa-phone-volume"></i>&nbsp;Contácto :: <b>(01) 33 1619-5698</b>
+                      <i class="fab fa-whatsapp"></i>&nbsp;Contacto :: <b>(01) 33 1382-8403</b>
                     </div>
                   </article>
                 </section>
               </div>
 
               <div class="text-right p-4 green-text d-none d-lg-block">
-                <i class="fas fa-phone-volume"></i>&nbsp;Contácto :: <b>(01) 33 1619-5698</b>
+                <i class="fab fa-whatsapp"></i>&nbsp;Contácto :: <b>(01) 33 1382-8403</b>
               </div>
 
               <nav class="navbar navbar-expand-md sticky-top peach-gradient">
@@ -59,13 +69,13 @@
                 <div class="collapse navbar-collapse" id="menuMain">
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                      <a class="nav-link text-white" href="#"><i class="fas fa-city"></i>&nbsp;Nosotros <span class="sr-only">(current)</span></a>
+                      <a class="nav-link text-white" href="{{ path('jupadi-index') }}" style="font-family: 'Open Sans Condensed', sans-serif; font-size: 1.5rem;"><i class="fas fa-city" style="font-size: 1rem;"></i>&nbsp;Nosotros <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-white" href="#"><i class="fas fa-toilet-paper"></i>&nbsp;Productos</a>
+                      <a class="nav-link text-white" href="{{ path('jupadi-productos') }}" style="font-family: 'Open Sans Condensed', sans-serif; font-size: 1.5rem;"><i class="fas fa-toilet-paper" style="font-size: 1rem;"></i>&nbsp;Productos</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-white" href="#"><i class="fas fa-comment"></i>&nbsp;Contáctanos</a>
+                      <a class="nav-link text-white" href="{{ path('jupadi-contactanos') }}" style="font-family: 'Open Sans Condensed', sans-serif; font-size: 1.5rem;"><i class="fas fa-comment" style="font-size: 1rem;"></i>&nbsp;Contáctanos</a>
                     </li>
                   </ul>
                 </div>
@@ -76,11 +86,11 @@
                 <div class="container">
                   <section class="row">
                     <article class="col">
-                      <h6 class="text-light font-weight-bold">Enlases</h6>
+                      <h6 class="text-light font-weight-bold">Enlaces</h6>
                       <ul>
-                        <li> <a class="text-primary" href="#">Nosotros</a> </li>
-                        <li> <a class="text-primary" href="#">Productos</a> </li>
-                        <li> <a class="text-primary" href="#">Contáctanos</a> </li>
+                        <li> <a class="text-primary" href="{{ path('jupadi-index') }}">Nosotros</a> </li>
+                        <li> <a class="text-primary" href="{{ path('jupadi-productos') }}">Productos</a> </li>
+                        <li> <a class="text-primary" href="{{ path('jupadi-contactanos') }}">Contáctanos</a> </li>
                       </ul>
                     </article>
                     <article class="col">
@@ -99,7 +109,6 @@
         </main>
       </div>
 
-
       <!-- JQuery -->
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <!-- Bootstrap tooltips -->
@@ -108,6 +117,8 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
       <!-- MDB core JavaScript -->
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
+
+      {{ encore_entry_script_tags('app') }}
       {% block javascripts %}{% endblock %}
     </body>
 </html>

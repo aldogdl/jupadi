@@ -20,7 +20,23 @@ class JupadiController extends AbstractController
      */
     public function productos()
     {
-        return $this->render('jupadi/productos.html.twig', [ ]);
+      $fotos = [
+        'etiquetas' => [
+          'etiquetas_v1.jpeg',
+          'etiquetas_v2.jpeg',
+          'etiquetas_1.jpeg',
+          'etiquetas_2.jpeg',
+          'etiquetas_3.jpeg',
+          'etiquetas_4.jpeg'
+        ],
+        'maquinas' => [
+          'maquina_v3.jpeg',
+          'maquina_2.jpeg'
+        ]
+      ];
+      return $this->render('jupadi/productos.html.twig', [
+        'fotos' => $fotos
+      ]);
     }
 
     /**

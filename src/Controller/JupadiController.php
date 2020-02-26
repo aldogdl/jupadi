@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class JupadiController extends AbstractController
 {
     /**
-     * @Route("/", name="jupadi-index")
+     * @Route("", name="jupadi-index")
      */
     public function index()
     {

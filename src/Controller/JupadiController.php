@@ -4,6 +4,13 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mailer\Transport;
+use Symfony\Component\Mime\Email;
+
+use App\Entity\Contactanos;
+use App\Form\ContactanosType;
 
 class JupadiController extends AbstractController
 {
@@ -42,9 +49,40 @@ class JupadiController extends AbstractController
     /**
      * @Route("/contactanos/", name="jupadi-contactanos")
      */
-    public function contactanos()
+    public function contactanos(Request $req, MailerInterface $mailer)
     {
-        return $this->render('jupadi/contacto.html.twig', [ ]);
+
+        $obj = new Contactanos();
+        $frm = $this->createForm(ContactanosType::class, $obj);
+        $frm->handleRequest($req);
+        if($frm->isSubmitted() && $frm->isValid()){
+          $dsn = 'smtp://ventas@jupadietiquetas.com:ventas123@mail.jupadietiquetas.com:465';
+
+          $transport = Transport::fromDsn($dsn);
+          $email = (new Email())
+            ->from($obj->getEmail())
+            ->to('ventas@jupadietiquetas.com')
+            ->cc('cc@example.com')
+            ->priority(Email::PRIORITY_HIGH)
+            ->subject('Mensaje desde tu Página Web!')
+            ->text($obj->getComentario());
+
+            $mailer = new \Symfony\Component\Mailer\Mailer($transport);
+            $mailer->send($email);
+            return $this->redirectToRoute('jupadi-msgRecibed');
+        }
+
+        return $this->render('jupadi/contacto.html.twig', [
+          'frm' => $frm->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/jupadi-mensaje-recibido/", methods={"GET"}, name="jupadi-msgRecibed")
+     */
+    public function msgRecibed()
+    {
+        return $this->render('jupadi/grax_email.html.twig', [ ]);
     }
 
     /**
@@ -70,4 +108,5 @@ class JupadiController extends AbstractController
     {
         return $this->render('jupadi/tema_acabados.html.twig', [ ]);
     }
+
 }

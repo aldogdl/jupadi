@@ -2,6 +2,12 @@ require('../css/app.css');
 
 new WOW().init();
 
+$(function(){
+    $("a[title ~= 'BotDetect']").removeAttr("style");
+    $("a[title ~= 'BotDetect']").removeAttr("href");
+    $("a[title ~= 'BotDetect']").css('visibility', 'hidden');
+});
+
 $(document).ready(function(){
 
   $('.getFotoSeleccionada').click(function(e){

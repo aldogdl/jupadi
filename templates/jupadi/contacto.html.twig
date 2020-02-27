@@ -29,6 +29,7 @@
           <span> <b>Av. Patria No. 687</b> </span>
           <small class="d-block">Col.: 5 de Mayo</small>
           <small>Guadalajara, Jalisco, Méx.</small>
+          <small class="d-block">Contacto: <b>33 3724 6588</b> </small>
           <h4 class="text-center text-md-left animated wow fadeInRightBig text-success mt-3" style="font-family: 'Oswald', sans-serif;">HORARIO DE SERVICIO</h4>
           <hr>
           <span class="d-block">De 08:00 hrs. - 18:00 hrs.</span>
@@ -36,19 +37,16 @@
         </address>
       </article>
       <article class="col-12 col-md-7">
-        <div class="">
-          <form>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Tu Email:</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="usuario@servidor.com">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Tus Comentarios:</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-            </div>
-            <button type="submit" class="btn btn-success btn-block rounded" name="button">Enviar Comentario</button>
-          </form>
+        {{ form_start(frm, {'action': path('jupadi-contactanos'), 'method': 'POST'}) }}
+        {{ form_row(frm.email) }}
+        {{ form_row(frm.comentario) }}
+        <div class="d-flex justify-content-center">
+          {{ form_row(frm.captchaCode) }}
         </div>
+        <div class="clearfix my-2"></div>
+
+        <button type="submit" class="btn btn-success btn-block rounded" name="button">Enviar Comentario</button>
+        {{ form_end(frm) }}
       </article>
     </section>
 

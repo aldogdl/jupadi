@@ -9,4 +9,4 @@ RewriteRule ^(.*)$ https://jupadietiquetas.com/$1 [R,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.html [QSA,L]
+RewriteRule ^(.*)$ index.php [QSA,L]

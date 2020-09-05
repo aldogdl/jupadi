@@ -51,29 +51,34 @@ class JupadiController extends AbstractController
      */
     public function contactanos(Request $req, MailerInterface $mailer)
     {
-
         $obj = new Contactanos();
         $frm = $this->createForm(ContactanosType::class, $obj);
         $frm->handleRequest($req);
+        $erroCaptcha = false;
         if($frm->isSubmitted() && $frm->isValid()){
+
           $dsn = 'smtp://ventas@jupadietiquetas.com:ventas123@mail.jupadietiquetas.com:465';
+          $tokenCapcha = $req->request->get('g-recaptcha-response');
+          if(strlen($tokenCapcha) > 20){
+            $transport = Transport::fromDsn($dsn);
+            $email = (new Email())
+              ->from($obj->getEmail())
+              ->to('ventas@jupadietiquetas.com')
+              ->cc('cc@example.com')
+              ->priority(Email::PRIORITY_HIGH)
+              ->subject('Mensaje desde tu Página Web!')
+              ->text($obj->getComentario());
 
-          $transport = Transport::fromDsn($dsn);
-          $email = (new Email())
-            ->from($obj->getEmail())
-            ->to('ventas@jupadietiquetas.com')
-            ->cc('cc@example.com')
-            ->priority(Email::PRIORITY_HIGH)
-            ->subject('Mensaje desde tu Página Web!')
-            ->text($obj->getComentario());
-
-            $mailer = new \Symfony\Component\Mailer\Mailer($transport);
-            $mailer->send($email);
-            return $this->redirectToRoute('jupadi-msgRecibed');
+              $mailer = new \Symfony\Component\Mailer\Mailer($transport);
+              $mailer->send($email);
+              return $this->redirectToRoute('jupadi-msgRecibed');
+          }else{
+            $erroCaptcha = true;
+          }
         }
 
         return $this->render('jupadi/contacto.html.twig', [
-          'frm' => $frm->createView()
+          'frm' => $frm->createView(), 'erroCaptcha' => $erroCaptcha
         ]);
     }
 

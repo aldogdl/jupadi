@@ -8,7 +8,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-use Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -23,10 +22,6 @@ class ContactanosType extends AbstractType
           ->add('comentario', TextareaType::class, [
             'label' => 'Tu Comentario:'
           ])
-          ->add('captchaCode', CaptchaType::class, array(
-            'label' => '.',
-            'captchaConfig' => 'ContactanosCaptcha'
-          ))
         ;
     }
 
